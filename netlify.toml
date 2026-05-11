@@ -1,6 +1,7 @@
 [build]
   command = "hugo"
   publish = "public/"
+  functions = "netlify/functions"
 
 [build.environment]
   HUGO_VERSION = "0.152.2"
@@ -10,6 +11,17 @@
   port = 8888
   targetPort = 1313
   autoLaunch = false
+
+[functions]
+  node_bundler = "esbuild"
+
+# ####### member portal #######
+# The member portal uses Netlify Functions for authentication:
+# - /.netlify/functions/auth-request - Request magic code email
+# - /.netlify/functions/auth-verify - Verify code and issue session
+# - /.netlify/functions/auth-logout - Clear session cookie
+# - /.netlify/functions/member-data - Get member details (authenticated)
+# Protected routes (/member/*) check auth client-side via member-data API
 
 # ####### general ILSA links ####### 
 
