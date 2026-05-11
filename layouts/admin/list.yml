@@ -8,7 +8,7 @@ backend:
 {{ else -}}
 backend:
   name: git-gateway
-  branch: main
+  branch: test/combined
   accept_roles:
     - admin
 {{ end -}}
